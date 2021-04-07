@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         WebViewClient myWebViewClient = new WebViewClient();
         mywebview.setWebViewClient(myWebViewClient);
         mywebview.loadUrl("https://his.se");
+        WebSettings webSettings = mywebview.getSettings();
+        webSettings.setJavaScriptEnabled(true);
 
         /*
         * Rename your App. Tip: Values->Strings
