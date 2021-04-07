@@ -4,7 +4,7 @@ På grund av att webview är en webbläsare i appen behöver appen ha tillåtels
 
 ```
     <uses-permission android:name="android.permission.INTERNET" />
-´´´
+```
 
 Skapad webview element i layoutfil:
 Ett webview element implementerades in i layout XML filen content_main och ersattes av den redan ditlagda textview elementet. Inne i webview elementen angavs det ett id som fick namnet my_webview. Som layoutvy användes match_parent. Match_parent matchar både bredd och höjd samma som det överordnade attribut taggen.
