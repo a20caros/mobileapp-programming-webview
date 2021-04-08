@@ -7,13 +7,14 @@ På grund av att webview är en webbläsare i appen behöver appen ha tillåtels
 ```
 
 Skapad webview element i layoutfil:
-Ett webview element implementerades in i layout XML filen content_main och ersattes av den redan ditlagda textview elementet. Inne i webview elementen angavs det ett id som fick namnet my_webview. Som layoutvy användes match_parent. Match_parent matchar både bredd och höjd samma som det överordnade attribut taggen.
+Ett webview element implementerades in i layout XML filen content_main och ersattes av den redan ditlagda textview elementet. Inne i webview elementen angavs det ett id som fick namnet my_webview. Som layoutvy användes match_parent. Match_parent matchar både bredd och höjd samma som det överordnade attribut taggen. För att texten i html filen inte ska hamna bakom topbaren i appen användes layout_marginTop="80dp". Texten placeras då på ett bra sätt nedanför topbaren.
 
 ```
      <WebView
          android:id="@+id/my_webview"
          android:layout_width="match_parent"
-         android:layout_height="match_parent" />
+         android:layout_height="match_parent"
+         android:layout_marginTop="80dp"/>
 ```
 
 
@@ -25,7 +26,7 @@ Privata medlemsvariabler är variabler som enbart är visuell för den klass som
 ```
 
 ```
-    WebView mywebview = findViewById(R.id.my_webview);
+    mywebview = findViewById(R.id.my_webview);
     WebViewClient myWebViewClient = new WebViewClient();
     mywebview.setWebViewClient(myWebViewClient);
 ```
@@ -48,20 +49,14 @@ För att en HTMl-fil skall kunna implementeras i appen behövdes en asset-folder
 ```
 
 Implementera ‘showExternalWebPage()’ och ‘showinternalWebPage()’:
-I de redan implementerade metoderna showExternalWebPage och showinternalwebpage lades webview klienten till för att sidan som de olika webpages ska öppna skall öppnas i appen och inte i en webbläsare med en url. För metoden showExternalWebPage lades en loadUrl till med en extern URL. Den sidan som lades till var SVT. För showinternalwebpage lades html filen till för att öppnas när användaren klickar på showinternalwebpage i menyvalet.
+I de redan implementerade metoderna showExternalWebPage och showinternalwebpage lades en loadUrl till med en extern URL i showExternalWebPage. Den sidan som lades till var SVT. För showinternalwebpage lades html filen till för att öppnas när användaren klickar på showinternalwebpage i menyvalet.
 
 ```
     public void showExternalWebPage(){
-       WebView mywebview = findViewById(R.id.my_webview);
-       WebViewClient myWebViewClient = new WebViewClient();
-       mywebview.setWebViewClient(myWebViewClient);
        mywebview.loadUrl("https://svt.se");
     }
 
     public void showInternalWebPage(){
-       WebView mywebview = findViewById(R.id.my_webview);
-       WebViewClient myWebViewClient = new WebViewClient();
-       mywebview.setWebViewClient(myWebViewClient);
        mywebview.loadUrl("file:///android_asset/mywebview.html");
     }
 ```
@@ -93,3 +88,5 @@ För att sidorna ska komma upp när användaren väljer ett alternativ i menyn l
     }
 ```
 
+![](External webpage.png)
+![](Internal webpage.png)
