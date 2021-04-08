@@ -88,5 +88,5 @@ För att sidorna ska komma upp när användaren väljer ett alternativ i menyn l
     }
 ```
 
-![](External webpage.png)
-![](Internal webpage.png)
+![](External_webpage.png)
+![](Internal_webpage.png)
